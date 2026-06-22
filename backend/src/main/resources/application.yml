@@ -1,0 +1,90 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: legal-contract-platform
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/legal_contract?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 100MB
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  type-aliases-package: com.legal.contract.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+
+jwt:
+  secret: YTk3ZDJmYjRhNTg5YzBmMTE2M2I0ZDdmOGUxYzJhZjU4OTBiYzBmMTJhM2I0Y2Q3ZjhhOTdkMmZiNGE1ODljMGYx
+  expiration: 86400000
+
+
+langchain4j:
+  open-ai:
+    chat-model:
+      base-url:  https://dashscope.aliyuncs.com/compatible-mode/v1
+      api-key: key
+      model-name:  qwen3.7-plus
+      temperature: 0.7
+      max-tokens: 4096
+      log-requests: true
+      log-responses: true
+
+
+milvus:
+  token: token
+  uri: https://in03-92be74338d80553.serverless.ali-cn-hangzhou.cloud.zilliz.com.cn
+  collection-name: legal_knowledge
+  dimension: 1536
+
+
+file:
+  upload-path: ./upload/contracts
+  allowed-extensions: pdf,doc,docx,txt
+
+
+agent:
+  max-retries: 3
+  reflection-enabled: true
+  supervisor-model: qwen-math-turbo
+  analysis-model: glm-5
+  generation-model: qwen-max
+
+logging:
+  level:
+    com.legal.contract: DEBUG
+    dev.langchain4j: DEBUG

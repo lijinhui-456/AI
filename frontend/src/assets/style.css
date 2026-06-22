@@ -1,0 +1,45 @@
+:root {
+  --primary-color: #409eff;
+  --success-color: #67c23a;
+  --warning-color: #e6a23c;
+  --danger-color: #f56c6c;
+  --info-color: #909399;
+  --bg-color: #f5f7fa;
+  --sidebar-bg: #1d1e1f;
+  --sidebar-text: #bfcbd9;
+  --sidebar-active-text: #409eff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #c0c4cc; border-radius: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* Streaming content markdown styles */
+.stream-content h1, .stream-content h2, .stream-content h3 { margin: 12px 0 8px; }
+.stream-content p { margin: 6px 0; line-height: 1.6; }
+.stream-content ul, .stream-content ol { padding-left: 20px; margin: 6px 0; }
+.stream-content code { background: #f4f4f5; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+.stream-content pre { background: #f4f4f5; padding: 12px; border-radius: 6px; overflow-x: auto; margin: 8px 0; }
+.stream-content pre code { background: none; padding: 0; }
+.stream-content table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+.stream-content th, .stream-content td { border: 1px solid #dcdfe6; padding: 8px 12px; text-align: left; }
+.stream-content th { background: #f5f7fa; font-weight: 600; }
